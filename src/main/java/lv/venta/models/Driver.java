@@ -3,10 +3,14 @@ package lv.venta.models;
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,8 +20,13 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-@AttributeOverride(name = "Idperson", column = @Column(name = "Iddriver"))
 public class Driver extends Person{
+	
+	@Setter(value = AccessLevel.NONE) 
+	@Column(name = "Iddriver")
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long iddriver;
 	
 	@Column(name = "Categorie")
 	private Buscategory categorie;
