@@ -16,7 +16,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Table(name = "cashier_table")
+@Table(name = "trip_table")
 @Entity
 @Getter
 @Setter
