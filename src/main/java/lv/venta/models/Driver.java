@@ -1,11 +1,14 @@
 package lv.venta.models;
 
+import java.util.Collection;
+
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
@@ -41,7 +44,8 @@ public class Driver extends Person{
 	}
 	
 	
-	
+	@OneToMany(mappedBy = "tripDriver")
+	private Collection<Trip> trip;
 	
 	
 	
