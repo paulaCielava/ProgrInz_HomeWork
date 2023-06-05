@@ -1,6 +1,7 @@
 package lv.venta.models;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Collection;
 
 import jakarta.persistence.Column;
@@ -9,6 +10,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
@@ -75,9 +77,14 @@ public class Trip {
 	@OneToMany(mappedBy = "ticketTrip")
 	private Collection<Ticket> ticket;
 	
+	@ManyToMany(mappedBy = "trip")
+	private Collection<City> cityTrips = new ArrayList<>();
 	
-	
-	
+	public void addcityTrips (City inputCity) {
+		if(!cityTrips.contains(inputCity)) {
+			cityTrips.add(inputCity);
+		}
+	}
 	
 	
 	
