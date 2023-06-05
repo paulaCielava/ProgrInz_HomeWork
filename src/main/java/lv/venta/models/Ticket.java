@@ -55,7 +55,9 @@ public class Ticket {
 	@JoinColumn(name = "Idcashier")
 	private Cashier ticketCashier;
 	
-	
+	@ManyToOne
+	@JoinColumn(name = "Idtrip")
+	private Trip ticketTrip;
 	
 	
 	
