@@ -1,11 +1,14 @@
 package lv.venta.models;
 
+import java.util.Collection;
+
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
@@ -36,7 +39,8 @@ public class Cashier extends Person{
 		super(name, surname);
 	}
 	
-	
+	@OneToMany(mappedBy = "ticketCashier")
+	private Collection<Ticket> ticket;
 	
 	
 	
