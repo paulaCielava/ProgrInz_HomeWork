@@ -36,13 +36,32 @@ public class Trip {
 	private String cities;
 	
 	@Column(name = "Driver")
+	@NotNull
+	@Pattern(regexp = "[A-ZĀŠĒĢŪĪĶĻŅŽ]{1}[a-zēīļķšāžņģ\\ ]+")
+	@Size(min = 3, max = 100)
 	private String driver;
 	
-	
+	@Column(name = "StartDateTime")
+	@NotNull
 	private LocalDateTime startDateTime;
 	
-	
+	@Column(name = "Duration")
+	@NotNull
+	@Pattern(regexp = "[A-ZĀŠĒĢŪĪĶĻŅŽ]{1}[a-zēīļķšāžņģ\\ ]+")
+	@Size(min = 3, max = 100)
 	private String duration;
+
+	public Trip(
+			@NotNull @Pattern(regexp = "[A-ZĀŠĒĢŪĪĶĻŅŽ]{1}[a-zēīļķšāžņģ\\ ]+") @Size(min = 3, max = 100) String cities,
+			@NotNull @Pattern(regexp = "[A-ZĀŠĒĢŪĪĶĻŅŽ]{1}[a-zēīļķšāžņģ\\ ]+") @Size(min = 3, max = 100) String driver,
+			@NotNull LocalDateTime startDateTime,
+			@NotNull @Pattern(regexp = "[A-ZĀŠĒĢŪĪĶĻŅŽ]{1}[a-zēīļķšāžņģ\\ ]+") @Size(min = 3, max = 100) String duration) {
+		super();
+		this.cities = cities;
+		this.driver = driver;
+		this.startDateTime = startDateTime;
+		this.duration = duration;
+	}
 	
 	
 	
