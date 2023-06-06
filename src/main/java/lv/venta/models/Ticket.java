@@ -34,6 +34,9 @@ public class Ticket {
 	@Column(name = "PurchaseDateTime")
 	private LocalDateTime purchaseDateTime;
 	
+	@Column(name = "Price")
+	private float price;
+	
 	@Column(name = "Trip")
 	private String trip;
 	
@@ -43,9 +46,10 @@ public class Ticket {
 	@Column(name = "Cashier")
 	private String cashier;
 
-	public Ticket(LocalDateTime purchaseDateTime, String trip, boolean isChild, String cashier) {
+	public Ticket(LocalDateTime purchaseDateTime, float price, String trip, boolean isChild, String cashier) {
 		super();
 		this.purchaseDateTime = purchaseDateTime;
+		this.price = price;
 		this.trip = trip;
 		this.isChild = isChild;
 		this.cashier = cashier;
