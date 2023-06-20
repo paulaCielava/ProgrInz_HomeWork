@@ -9,7 +9,7 @@ import lv.venta.models.Trip;
 
 public interface ITicketRepo extends CrudRepository<Ticket, Long>{
 
-	ArrayList<Trip> selectAllTicketsByTripId(long idticket);
+	ArrayList<Ticket> selectAllTicketsByTripId(long idticket);
 
 	ArrayList<Trip> selectAllTripsByDriverId (long iddriver);
 

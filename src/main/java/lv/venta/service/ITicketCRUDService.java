@@ -11,4 +11,8 @@ public interface ITicketCRUDService {
 
 	ArrayList<Trip> selectAllTicketsByTripId(long idticket) throws Exception;
 
+	float calculateIncomeOfTripByTripId(long idtrip) ;
+
+	float calculateIncomeOfCashierByCahierId(long idcashier);
+
 }
