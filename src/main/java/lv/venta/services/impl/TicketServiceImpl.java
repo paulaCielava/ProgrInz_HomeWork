@@ -14,6 +14,8 @@ public class TicketServiceImpl implements ITicketCRUDService{
 
 	@Autowired
 	private ITicketRepo ticketRepo;
+	@Autowired
+	private ITripRepo tripRepo;
 	
 	
 	private ArrayList<Ticket> getAllTickets() {
@@ -79,22 +81,7 @@ public class TicketServiceImpl implements ITicketCRUDService{
 		return totalCashierIncome; //atgriež kopējo summu no biļetēm, ko pārdevis konkrēts kasieris
 	}
 	
-	private boolean isValidTicket (Ticket ticket) {
-		if (ticket == null) {
-			return false;
-		}
-		if (ticket.getPrice() <= 0) {
-			return false;
-		}
-		if (ticket.getTrip() == null || ticket.getTrip().isEmpty()) {
-			return false;
-		}
-		return true;
-	}
 	
-	public void insertNewTicketByTripId (long idtrip, Ticket newTicket) {
-		Trip trip = tripRepo.findById(idtrip); 
-	}
 	
 	
 	
