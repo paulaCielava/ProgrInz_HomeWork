@@ -17,7 +17,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Table(name = "person_table")
-@Entity
 @Getter
 @Setter
 @NoArgsConstructor

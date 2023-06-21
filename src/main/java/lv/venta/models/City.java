@@ -43,7 +43,7 @@ public class City {
 	@Column(name = "AddressOfStation") 
 	@NotNull
 	@Pattern(regexp = "[A-ZĀŠĒĢŪĪĶĻŅŽ]{1}[a-zēīļķšāžņģ\\ ]+")
-	@Size(min = 3, max = 100)
+	@Size(min = 3, max = 1000)
 	private String addressOfStation;
 
 	public City(
