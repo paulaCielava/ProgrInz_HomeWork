@@ -13,6 +13,12 @@ public interface ITicketRepo extends CrudRepository<Ticket, Long>{
 
 	ArrayList<Trip> selectAllTripsByDriverId (long iddriver);
 
+	ArrayList<Ticket> selectAllChildTickets(boolean isChild);
+
+	float calculateIncomeOfTripByTripId(long idtrip);
+
+	float calculateIncomeOfCashierByCahierId(long idcashier);
+
 	
 	
 	

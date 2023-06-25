@@ -13,6 +13,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -35,24 +36,26 @@ public class Ticket {
 	private LocalDateTime purchaseDateTime;
 	
 	@Column(name = "Price")
+	@Positive
 	private float price;
 	
-	@Column(name = "Trip")
-	private String trip;
+	//@Column(name = "Trip")
+	//private String trip;
 	
 	@Column(name = "IsChild")
 	private boolean isChild;
 	
+	/*
 	@Column(name = "Cashier")
 	private String cashier;
+	*/
 
-	public Ticket(LocalDateTime purchaseDateTime, float price, String trip, boolean isChild, String cashier) {
-		super();
+	public Ticket(LocalDateTime purchaseDateTime, float price, Trip ticketTrip, boolean isChild, Cashier ticketCashier) {
 		this.purchaseDateTime = purchaseDateTime;
 		this.price = price;
-		this.trip = trip;
+		this.ticketTrip = ticketTrip;
 		this.isChild = isChild;
-		this.cashier = cashier;
+		this.ticketCashier = ticketCashier;
 	}
 	
 	@ManyToOne

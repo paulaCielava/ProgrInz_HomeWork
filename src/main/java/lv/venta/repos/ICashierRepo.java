@@ -4,8 +4,8 @@ import org.springframework.data.repository.CrudRepository;
 
 import lv.venta.models.Cashier;
 
-public interface ICashierRepo extends CrudRepository<Character, Long>{
+public interface ICashierRepo extends CrudRepository<Cashier, Long>{
 
-	void save(Cashier cashier);
+	
 
 }

@@ -1,0 +1,26 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert new driver</title>
+</head>
+<body>
+	<h1>Add new driver</h1>
+	<form action="/driver/addNew" method="post" th:object="${driver}">\
+		<label for="name">Name: </label>
+		<input type="text" id="name" name="name" th:fields="*{name}" required>
+		<br>
+		<label for="surname">Surname: </label>
+		<input type="text" id="surname" name="surname" th:fields="*{surname}" required>
+		<br>
+		<label for="categories">Categories: </label>
+		<select id="categories" name="categories" th:fields="*{categories}" required>
+			<option th:each="category : ${T(lv.venta.models.Buscategory).values()}"
+					th:value="${category}"
+					th:text="${category}"></option>
+		</select>
+		
+		<button type="submit">Add Driver </button>
+	</form>
+</body>
+
+</html>

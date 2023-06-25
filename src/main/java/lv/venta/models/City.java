@@ -55,8 +55,7 @@ public class City {
 	}
 	
 	
-	@ManyToMany
-	@JoinTable(name = "cityTrips", joinColumns = @JoinColumn(name = "Idcity"), inverseJoinColumns = @JoinColumn(name = "Idtrip"))
+	@ManyToMany(mappedBy = "cityTrips")
 	private Collection<Trip> trip = new ArrayList<>();
 	
 	public void addTrip (Trip inputTrip) {

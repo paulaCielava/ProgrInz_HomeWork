@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>All tickets</title>
+</head>
+<body>
+	<h1>All tickets</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Purchase date</th>
+				<th>Price</th>
+				<th>Is child</th>
+				<th>Cashier ID</th>
+				<th>Trip ID</th>
+			</tr>
+		</thead>
+				<tbody>
+			<tr th:each="ticket : ${myLowPriceTicket}">
+				<td th:text="${ticket.idticket}"></td>
+				<td th:text="${ticket.purchaseDateTime}"></td>
+				<td th:text="${ticket.price}"></td>
+				<td th:text="${ticket.isChild}"></td>
+				<td th:text="${ticket.cashier.idcashier}"></td>
+				<td th:text="${ticket.trip.idtrip}"></td>
+			</tr>
+			
+		</tbody>
+	</table>
+	<div th:if="${error}" style="color: pink;">
+		<p th:text="${error}"></p>
+	</div>
+</body>
+
+
+
+
+
+</html>

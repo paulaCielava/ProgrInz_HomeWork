@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Income </title>
+</head>
+<body>
+	<h1 th:if="${myCashierIncome} != null"> Cashier Income </h1>
+	<h1 th:if="${myTripIncome} != null"> Trip Income </h1>
+	
+	<p th:if="${myCashierIncome} != null"> Income from cashier ID: <span th:text="${myCashierIncome}"></span>EURO </p>
+	<p th:if="${myTripIncome} != null"> Income from cashier ID: <span th:text="${myTripIncome}"></span>EURO </p>
+	
+</body>
+
+
+</html>

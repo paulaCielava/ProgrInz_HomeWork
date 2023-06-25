@@ -3,12 +3,14 @@ package lv.venta.services.impl;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import lv.venta.models.Buscategory;
 import lv.venta.models.Driver;
 import lv.venta.repos.IDriverRepo;
 import lv.venta.service.IDriverCRUDService;
 
+@Service
 public class DriverServiceImpl implements IDriverCRUDService{
 	
 	private ArrayList<Driver> allDrivers = new ArrayList<>();

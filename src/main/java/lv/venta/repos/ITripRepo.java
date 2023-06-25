@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import org.springframework.data.repository.CrudRepository;
 
+import lv.venta.models.Driver;
 import lv.venta.models.Trip;
 
 public interface ITripRepo extends CrudRepository<Trip, Long>{
@@ -13,13 +14,15 @@ public interface ITripRepo extends CrudRepository<Trip, Long>{
 
 	// selectAllTripsByDriverId
 	// SELECT * FROM trip_table WHERE iddriver = <iddriver>;
-	ArrayList<Trip> selectAllTripsByDriverId (long iddriver);
+	ArrayList<Trip> selectAllTripsByDriverId (long iddriver) throws Exception;
 	
-	// selectAlTripsToday
-	//SELECT * FROM trip_tabula WHERE startDateTime = CURRENT_DATE;
-	ArrayList<Trip> selectAlTripsToday (LocalDateTime startDateTime);
+	ArrayList<Trip> selectAllTripsByCityTitle(String title) throws Exception;
+
+	ArrayList<Trip> selectAllTripsToday(LocalDateTime startDateTime);
+
+	void changeTripDriverByDriverId(ArrayList<Trip> trips, long iddriver, Driver newDriverName) throws Exception;
 	
-	
+	Trip fingByIdTrip (long idtrip);
 	
 	
 	

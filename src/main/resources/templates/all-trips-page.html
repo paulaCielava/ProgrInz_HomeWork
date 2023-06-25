@@ -1,0 +1,23 @@
+<html xmlns:th="http://www.thymeleaf.org">
+	<body>
+		<h1>All trips</h1>
+		
+		<table>
+			<tr>
+				<th>ID<th>
+				<th>Cities<th>
+				<th>Driver<th>
+				<th>Start Date Time<th>
+				<th>Duration<th>
+			</tr>
+			
+			<tr th:each="trip : ${myAllTrips}">
+				<td th:text="${trip.idtrip}"></td>
+				<td th:text="${trip.cities}"></td>
+				<td th:text="${trip.driver}"></td>
+				<td th:text="${trip.startDateTime}"></td>
+				<td th:text="${trip.duration}"></td>
+			</tr>
+		</table>
+	</body>
+</html>

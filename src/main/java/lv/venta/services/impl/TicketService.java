@@ -3,20 +3,26 @@ package lv.venta.services.impl;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import lv.venta.models.Ticket;
 import lv.venta.models.Trip;
+import lv.venta.repos.IDriverRepo;
 import lv.venta.repos.ITicketRepo;
 import lv.venta.repos.ITripRepo;
-import lv.venta.service.ITicketCRUDService;
 
-public class TicketServiceImpl implements ITicketCRUDService{
-
+@Service
+public abstract class TicketService implements ITicketRepo{
+	
 	@Autowired
 	private ITicketRepo ticketRepo;
 	@Autowired
 	private ITripRepo tripRepo;
 	
+	public TicketService(ITicketRepo ticketRepo, ITripRepo tripRepo) {
+		this.ticketRepo = ticketRepo;
+		this.tripRepo = tripRepo;
+	}
 	
 	private ArrayList<Ticket> getAllTickets() {
         ArrayList<Ticket> allTickets = new ArrayList<>();
@@ -45,7 +51,6 @@ public class TicketServiceImpl implements ITicketCRUDService{
         return lowPriceTickets;
     }
 	
-
 	@Override
 	public ArrayList<Trip> selectAllTicketsByTripId (long idtrip) throws Exception{
 		if (ticketRepo.existsById(idtrip)) {
@@ -74,7 +79,7 @@ public class TicketServiceImpl implements ITicketCRUDService{
 		ArrayList<Ticket> allTickets = getAllTickets(); // iegūst visu biļešu sarakstu
 		
 		for (Ticket temp : allTickets) {
-			if (temp.getCashier().equals(String.valueOf(idcashier))) {
+			if (temp.getTicketCashier().equals(String.valueOf(idcashier))) {
 				totalCashierIncome += temp.getPrice(); //pievieno biļetes cenu kopējajai ienākumu summai  
 			}
 		}
@@ -83,13 +88,5 @@ public class TicketServiceImpl implements ITicketCRUDService{
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 }

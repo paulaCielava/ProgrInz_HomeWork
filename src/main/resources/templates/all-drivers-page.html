@@ -1,0 +1,21 @@
+<html xmlns:th="http://www.thymeleaf.org">
+	<body>
+		<h1>All drivers</h1>
+		
+		<table>
+			<tr>
+				<th>ID<th>
+				<th>Name<th>
+				<th>Surname<th>
+				<th>Categorie<th>
+			</tr>
+			
+			<tr th:each="driver : ${myAllDrivers}">
+				<td th:text="${driver.iddriver}"></td>
+				<td th:text="${driver.name}"></td>
+				<td th:text="${driver.surname}"></td>
+				<td th:text="${driver.categorie}"></td>
+			</tr>
+		</table>
+	</body>
+</html>
